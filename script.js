@@ -1,12 +1,11 @@
 let message;
-
+let randomNumber = Math.floor(Math.random() * 99) + 1;
 function guessNumber(number, attemps) {
   function askingQuestion() {
     message = prompt("Угадай число от 1 до 100");
 
     if (message == null) {
-      alert("Введи число!");
-      askingQuestion();
+      alert("Игра окончена!");
     } else if (message > number) {
       alert(
         "Загаданное число меньше" +
@@ -23,7 +22,7 @@ function guessNumber(number, attemps) {
         if (mesAttemps) {
           attemps = 10;
         } else {
-          return false;
+          return guessNumber;
         }
       }
       askingQuestion();
@@ -43,7 +42,7 @@ function guessNumber(number, attemps) {
         if (mesAttemps) {
           attemps = 10;
         } else {
-          return false;
+          return guessNumber;
         }
       }
       askingQuestion();
@@ -55,7 +54,7 @@ function guessNumber(number, attemps) {
       if (mesWin) {
         askingQuestion();
       } else {
-        return false;
+        return guessNumber;
       }
     }
   }
@@ -63,4 +62,4 @@ function guessNumber(number, attemps) {
   askingQuestion();
 }
 
-guessNumber(59, 10);
+guessNumber(randomNumber, 10);
