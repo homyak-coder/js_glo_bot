@@ -4,7 +4,10 @@ function guessNumber(number, attemps) {
   function askingQuestion() {
     message = prompt("Угадай число от 1 до 100");
 
-    if (message > number) {
+    if (message == null) {
+      alert("Введи число!");
+      askingQuestion();
+    } else if (message > number) {
       alert(
         "Загаданное число меньше" +
           " " +
@@ -47,8 +50,6 @@ function guessNumber(number, attemps) {
     } else if (isNaN(message)) {
       alert("Введи число!");
       askingQuestion();
-    } else if (message == null) {
-      alert("Игра окончена");
     } else if (message == number) {
       let mesWin = confirm("Поздравляю, Вы угадали!!! Хотели бы сыграть еще?");
       if (mesWin) {
